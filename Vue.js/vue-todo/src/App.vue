@@ -21,8 +21,6 @@ import { saveData, getData } from "./utils/storage";
 const TODO_STORAGE_KEY = "vue-todo-list";
 const jsConfetti = new JSConfetti();
 
-// const jsConfetti = new JSConfetti();
-
 export default {
   components: {
     HeaderWrapper: HeaderWrapper,
