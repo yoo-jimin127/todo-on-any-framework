@@ -1,8 +1,8 @@
 <template>
     <button class="reset-btn" @click="resetTodoList">Reset</button>
-  </template>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   export default {
     methods: {
       resetTodoList() {
@@ -10,9 +10,9 @@
       },
     },
   };
-  </script>
+</script>
   
-  <style>
+<style>
   .reset-btn {
     color: rgb(214, 94, 94);
     font-weight: 500;
@@ -21,4 +21,4 @@
     border: none;
     background-color: transparent;
   }
-  </style>
+</style>

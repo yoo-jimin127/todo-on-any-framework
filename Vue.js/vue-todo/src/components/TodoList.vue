@@ -8,9 +8,9 @@
         @removeTodoItem="removeTodoItem"
       />
     </ul>
-  </template>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   import TodoItem from "./TodoItem.vue";
   
   export default {
@@ -27,9 +27,9 @@
       },
     },
   };
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   ul {
     list-style-type: none;
     padding-left: 0;
@@ -39,4 +39,4 @@
     align-items: center;
     margin-top: 20px;
   }
-  </style>
+</style>

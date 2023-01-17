@@ -1,21 +1,21 @@
 <template>
     <li>
-      <div
-        :class="{ doneTodo: todoItem.completed }"
-        @click="toggleTodoItem(todoItem.id)"
-      >
+        <div
+            :class="{ doneTodo: todoItem.completed }"
+            @click="toggleTodoItem(todoItem.id)"
+        >
         <span class="checkIcon">
-          <i class="fa fa-check" aria-hidden="true"></i>
+            <i class="fa fa-check" aria-hidden="true"></i>
         </span>
         {{ todoItem.todo }}
-      </div>
-      <span class="removeBtn" type="button" @click="removeTodoItem(todoItem.id)">
+    </div>
+    <span class="removeBtn" type="button" @click="removeTodoItem(todoItem.id)">
         <i class="fa fa-trash-o" aria-hidden="true"></i>
-      </span>
+    </span>
     </li>
-  </template>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   import type { PropType } from "vue";
   
   export interface TodoItemType {
@@ -37,9 +37,9 @@
       },
     },
   };
-  </script>
+</script>
   
-  <style scoped>
+<style scoped>
   li {
     width: 350px;
     height: 45px;
@@ -65,4 +65,4 @@
     text-decoration: line-through;
     color: rgb(130, 130, 130);
   }
-  </style>
+</style>

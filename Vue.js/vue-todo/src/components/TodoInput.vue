@@ -10,9 +10,9 @@
         <i class="addBtn fa fa-plus" aria-hidden="true"></i>
       </span>
     </div>
-  </template>
+</template>
   
-  <script lang="ts">
+<script lang="ts">
   export default {
     data() {
       return {
@@ -33,9 +33,9 @@
       },
     },
   };
-  </script>
+</script>
   
-  <style>
+<style>
   input {
     width: 300px;
     height: 35px;
@@ -53,4 +53,4 @@
   .addBtn {
     color: #fff;
   }
-  </style>
+</style>
