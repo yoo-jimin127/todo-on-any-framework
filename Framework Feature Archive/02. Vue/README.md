@@ -327,3 +327,103 @@ export default {
   }
 }
 ```
+
+## ✅ Computed Properties
+### ▶️ 1. Basis
+반응형 데이터를 포함하는 복잡한 논리의 경우 `계산된 프로퍼티` 사용 지향   
+```js
+// js
+export default {
+  data() {
+    return {
+      author: {
+        name: 'John Doe',
+        books: [
+          'Vue 2 - Advanced Guide',
+          'Vue 3 - Basic Guide',
+          'Vue 4 - The Mystery'
+        ]
+      }
+    }
+  },
+  computed: {
+    // 계산된 값을 반환하는 속성
+    publishedBooksMessage() {
+      // `this`는 컴포넌트 인스턴스를 가리킵니다.
+      return this.author.books.length > 0 ? 'Yes' : 'No'
+    }
+  }
+}
+```
+```html
+<!-- template -->
+<p>책을 가지고 있다:</p>
+<span>{{ publishedBooksMessage }}</span>
+```
+- Computed Properties : `publishedBooksMessage`
+`data`에 있는 `book` 배열 값 변경 시, 그에 따른 `publishedBooksMessage` 변경 확인 가능   
+
+### ▶️ 2. Computed Caching vs Method
+표현식에서도 메서드 호출을 통해 동일한 결과 도출 가능   
+```html
+<p>{{ calculateBooksMessage() }}</p>
+```
+```js
+// 컴포넌트 내에서
+methods: {
+  calculateBooksMessage() {
+    return this.author.books.length > 0 ? 'Yes' : 'No'
+  }
+}
+```
+계산된 속성 대신 메서드로 동일한 기능 정의 가능   
+두 접근 방식은 완전히 동일함   
+
+- **두 방식의 차이점**
+  1. 메서드 호출은 **리렌더링 발생 시마다 항상 함수 실행**   
+  2. 계산된 프로퍼티는 **reactive dependencies(의존된 반응형)기반으로 캐싱**   
+→ `author.books`가 변경되지 않을 경우 `publishedBooksMessage`에 접근해도 이전에 계산된 결과 반환   
+
+### ▶️ 3. Writable Computed
+계산된 속성은 기본적으로 `getter` 전용   
+계산된 속성에 새 값을 할당할 시 `runtime error` 발생   
+"수정 가능한" 계산된 속성이 필요할 때 `getter`와 `setter`를 모두 제공해 속성 생성 가능   
+```js
+export default {
+  data() {
+    return {
+      firstName: 'John',
+      lastName: 'Doe'
+    }
+  },
+  computed: {
+    fullName: {
+      // getter
+      get() {
+        return this.firstName + ' ' + this.lastName
+      },
+      // setter
+      set(newValue) {
+        // 참고: 분해 할당 문법을 사용함.
+        [this.firstName, this.lastName] = newValue.split(' ')
+      }
+    }
+  }
+}
+```
+
+## ✅ Lifecycle Hooks
+### ▶️ 1. Basis
+ex) `mounted` 훅 : 컴포넌트의 초기 렌더링 및 DOM 노드 생성이 완료된 후 코드 실행에 사용 가능   
+```js
+export default {
+  mounted() {
+    console.log(`컴포넌트가 마운트 됐습니다.`)
+  }
+}
+```
+- 인스턴스 생명 주기 단계에 따라 호출되는 훅 ex) `mounted`, `updated`, `unmounted` 
+모든 생명주기 or 훅 : 호출되는 현재 활성 인스턴스를 가리키는 `this` 컨텍스트로 호출   
+→ 생명주기 훅 선언 시 **화살표 함수를 사용하면 안됨**을 의미   
+
+<img src="https://user-images.githubusercontent.com/66112716/213135767-6d52dff2-010d-4d18-90b9-ac34827086f0.png" width="700" />
