@@ -1,11 +1,13 @@
 <script>
 	import TodoInput from "../components/TodoInput.svelte";
 	import TodoList from "../components/TodoList.svelte";
+    import Total from "../components/Total.svelte";
 </script>
 <section>
     <header>TODO RECEIPT</header>
     <TodoInput />
     <TodoList />
+    <Total />
 </section>
 
 <style>
