@@ -1,5 +1,9 @@
+<script>
+	import TodoInput from "../components/TodoInput.svelte";
+</script>
 <section>
     <header>TODO RECEIPT</header>
+    <TodoInput />
 </section>
 
 <style>
