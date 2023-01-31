@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { todoData } from "../store";
+    import Barcode from "./Barcode.svelte";
 
-
-    $: completedTodo = $todoData.filter((todo) => todo.completed).length
+    $: completedTodo = $todoData.filter((todo) => todo.completed).length;
     $: ratio = $todoData.length > 0 ? Number((completedTodo / $todoData.length).toFixed(2)) : 0
 </script>
 
@@ -13,6 +13,7 @@
         %
     </span>
 </div>
+<Barcode {ratio} />
 
 <style>
 	div {

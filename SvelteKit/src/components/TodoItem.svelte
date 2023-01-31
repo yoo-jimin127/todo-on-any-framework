@@ -5,7 +5,7 @@
     let {id, text, completed} = todo;
 
     const handleRemoveTodo = (id: number) => {
-        $todoData = $todoData.filter((todo) => todo.id === id)
+        $todoData = $todoData.filter((todo) => todo.id !== id)
     };
 
     const handleCompleteTodo = (id: number) => {
