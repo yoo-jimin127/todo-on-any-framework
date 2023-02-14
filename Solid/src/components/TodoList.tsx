@@ -1,4 +1,4 @@
-import { For } from "solid-js";
+import { createSignal, For } from "solid-js";
 import { PropAliases } from "solid-js/web";
 import { Todo } from "../types/todo";
 import TodoItem from "./TodoItem";
@@ -11,6 +11,12 @@ interface TodoListProps {
     onItemDownPress?: (index: number) => void;
     onItemDelete?: (index: number) => void; 
 }
+
+// const [todo1] = createSignal({});
+// const [todo2] = createSignal({});
+// const [todos, setTodos] = createSignal([todo1, todo2]);
+// todos()[0]() // 얘도 시그널
+// 중첩된 반응성 (반응성 내에 반응성이 또 있음)
 
 const TodoList = (props: TodoListProps) => {
     return (
