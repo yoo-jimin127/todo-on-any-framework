@@ -8,9 +8,9 @@ const App: Component = () => {
       <div class={`${styles.circle} ${styles.circle1}`} />
       <div class={`${styles.circle} ${styles.circle2}`} />
       <div class={styles.titleArea}>
-        <p class={styles.titleText}>SOLID</p>
-        <p class={`${styles.titleText} ${styles.titlePrimaryText}`}>TODO</p>
-        <p class={styles.titleText}>APP</p>
+        <p class={styles.titleText}>JIMIN's</p>
+        <p class={`${styles.titleText} ${styles.titlePrimaryText}`}>SOLID</p>
+        <p class={styles.titleText}>TODO APP</p>
         <img src={logo} class={styles.titleImage} />
       </div>
     </div>
