@@ -24,7 +24,7 @@ const TodoList = (props: TodoListProps) => {
             <For each={props.todos}> 
                 {/* 인덱스가 바뀔 일이 있을 때 사용 */}
                 {(todo, index) => (
-                    <TodoItem {...todo} onDone={() => {
+                    <TodoItem {...todo} onToggle={() => {
                         props.onItemDone?.(index());
                     }}
                     onUpPress={() => {
