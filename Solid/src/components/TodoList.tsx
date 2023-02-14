@@ -6,7 +6,7 @@ import styles from "./TodoList.module.css";
 
 interface TodoListProps {
     todos: Todo[];
-    onItemDone?: (index: number) => void;
+    onItemToggle?: (index: number) => void;
     onItemUpPress?: (index: number) => void;
     onItemDownPress?: (index: number) => void;
     onItemDelete?: (index: number) => void; 
@@ -25,7 +25,7 @@ const TodoList = (props: TodoListProps) => {
                 {/* 인덱스가 바뀔 일이 있을 때 사용 */}
                 {(todo, index) => (
                     <TodoItem {...todo} onToggle={() => {
-                        props.onItemDone?.(index());
+                        props.onItemToggle?.(index());
                     }}
                     onUpPress={() => {
                         props.onItemUpPress?.(index());
@@ -38,7 +38,6 @@ const TodoList = (props: TodoListProps) => {
                     }} />
                 )}
             </For>
-            {}
         </div>
     )
 };
