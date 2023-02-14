@@ -27,7 +27,7 @@ const App: Component = () => {
       />
 
       <div class={styles.input}>
-        <Input placeholder='Write TODO item' onConfirm={(text) => {
+        <Input placeholder="Write TODO item" onConfirm={(text) => {
           if (text !== "") {
             Todos.addTodo(text);
           }

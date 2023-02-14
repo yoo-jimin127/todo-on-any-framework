@@ -21,6 +21,7 @@ const Input = (props: InputProps) => {
                 setText('');
             } 
         }}
+        placeholder={props.placeholder}
         />
     );
 };
