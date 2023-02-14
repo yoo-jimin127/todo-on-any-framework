@@ -5,14 +5,18 @@ import arrowBottom from '../assets/arrow-bottom.svg';
 import close from '../assets/close.svg';
 import type { Todo } from '../../types/todo';
 
-interface TodoItemProps extends Todo {};
-
+interface TodoItemProps extends Todo {
+    onDone?: () => void;
+    onUpPress?: () => void;
+    onDownPress?: () => void;
+    onDelete?: () => void;
+}
 
 const TodoItem = (props: TodoItemProps) => {
 
   return (
     <div class={styles.container}>
-      <div class={styles.checkIconWrap}>
+      <div class={styles.checkIconWrap} onClick={props.onDone}>
         <img src={checkLine} class={styles.checkIcon} classList={{
             [styles.show]: !props.isDone
           }}
@@ -32,13 +36,15 @@ const TodoItem = (props: TodoItemProps) => {
         <img
           src={arrowBottom}
           class={`${styles.arrowIcon} ${styles.arrowTop}`}
+          onClick={props.onUpPress}
         />
         <img
           src={arrowBottom}
           class={styles.arrowIcon}
+          onClick={props.onDownPress}
         />
       </div>
-      <img src={close} class={styles.closeIcon} />
+      <img src={close} class={styles.closeIcon} onClick={props.onDelete} />
     </div>
   );
 };
