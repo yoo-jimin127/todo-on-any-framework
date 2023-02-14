@@ -51,5 +51,5 @@ export const addTodo = (text: string) => {
         text,
         isDone: false,
     };
-    setTodos((prev) => [...prev, newTodo])
-}
+    setTodos((prev) => [...prev, newTodo]);
+};
