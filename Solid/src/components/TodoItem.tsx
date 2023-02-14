@@ -3,7 +3,7 @@ import checkLine from '../assets/check-line.svg';
 import checkBold from '../assets/check-bold.svg';
 import arrowBottom from '../assets/arrow-bottom.svg';
 import close from '../assets/close.svg';
-import type { Todo } from '../../types/todo';
+import type { Todo } from '../types/todo';
 
 interface TodoItemProps extends Todo {
     onDone?: () => void;
