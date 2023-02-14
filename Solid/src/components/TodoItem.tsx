@@ -3,23 +3,30 @@ import checkLine from '../assets/check-line.svg';
 import checkBold from '../assets/check-bold.svg';
 import arrowBottom from '../assets/arrow-bottom.svg';
 import close from '../assets/close.svg';
+import type { Todo } from '../../types/todo';
+
+interface TodoItemProps extends Todo {};
 
 
-const TodoItem = () => {
+const TodoItem = (props: TodoItemProps) => {
+
   return (
     <div class={styles.container}>
       <div class={styles.checkIconWrap}>
-        <img
-          src={checkLine}
-          class={styles.checkIcon}
+        <img src={checkLine} class={styles.checkIcon} classList={{
+            [styles.show]: !props.isDone
+          }}
         />
-        <img
-          src={checkBold}
-          class={styles.checkIcon}
+        <img src={checkBold} class={styles.checkIcon} classList={{
+            [styles.show]: props.isDone
+        }}
+
         />
       </div>
-      <p class={styles.text}>
-        할 일
+      <p class={styles.text} classList={{
+        [styles.doneText]: props.isDone,
+      }}>
+        {props.text}
       </p>
       <div class={styles.arrowIconsContainer}>
         <img
