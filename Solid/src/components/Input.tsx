@@ -7,7 +7,7 @@ interface InputProps {
 }
 
 const Input = (props: InputProps) => {
-    const [text, setText] = createSignal('');
+    const [text, setText] = createSignal(''); // 컴포넌트 안에서만 쓰일 필요 X, 자바스크립트에서도 동일하게 쓸 수 있는 기능 
 
     return (
         <input class={styles.input} value={text()} onInput={(e) => {
@@ -17,7 +17,7 @@ const Input = (props: InputProps) => {
             if (e.key === 'Enter') {
                 if (e.isComposing) return;
 
-                props.onConfirm?.(text());
+                props.onConfirm?.(text()); // 프록시 객체에 접근하기 위한 문법
                 setText('');
             } 
         }}

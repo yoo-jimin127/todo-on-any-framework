@@ -4,6 +4,7 @@ import checkBold from '../assets/check-bold.svg';
 import arrowBottom from '../assets/arrow-bottom.svg';
 import close from '../assets/close.svg';
 
+
 const TodoItem = () => {
   return (
     <div class={styles.container}>
