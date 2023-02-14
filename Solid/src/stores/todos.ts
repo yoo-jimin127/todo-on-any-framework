@@ -2,11 +2,15 @@ import { createEffect } from "solid-js";
 import {createStore, produce} from "solid-js/store"; // immer
 import type { Todo } from "../types/todo";
 
-export const [todos, setTodos] = createStore<Todo[]>([]); // accessor가 아닌 proxy object
+const STORAGE_KEY = 'todos';
+
+const prevTodos = localStorage.getItem(STORAGE_KEY);
+export const [todos, setTodos] = createStore<Todo[]>(
+    prevTodos !== null ? JSON.parse(prevTodos) : []
+); // accessor가 아닌 proxy object
+
 // createSignal : 1개만 추적
 // createStore : 어떤 시그널이든 다 추적
-
-const STORAGE_KEY = 'todos';
 
 createEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
